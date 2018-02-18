@@ -287,7 +287,7 @@ class HAX {
 		
 		url += '?' + settings.raw + settings.page + checkPMs;
 		
-		$.ajax({
+		jQuery.ajax({
 			type: 'GET',
 			url: url,
 			async: settings.async,
