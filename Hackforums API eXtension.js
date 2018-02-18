@@ -2,11 +2,6 @@ class HAX {
 	constructor(apikey, header=true) {
 		this.apikey = apikey;
 		this.unreadpms = -1;
-		this.posts = {};
-		this.threads = {};
-		this.forums = {};
-		this.users = {};
-		this.groups = {};
 	}
 	
 	
@@ -73,7 +68,6 @@ class HAX {
 		this.accessAPI(url, function(data) {
 			if(data.success === true) {
 				data.result.pid = pids;
-				_this.posts[pids] = data.result;
 			}
 			func(data);
 		}, params);
@@ -166,7 +160,6 @@ class HAX {
 				data.result.postdata.forEach(function(element) {
 					element.fid = data.result.fid;
 					element.tid = tids;
-					_this.posts[element.pid] = element;
 				});
 			}
 			func(data);
